@@ -7,4 +7,12 @@ function theta = sLin_Reg(x, y)
     n = length(x);
     theta(1) = (sum(y) - a1*sum(x)) / n;
     theta(2) = (n*sum(x.*y) - sum(x)*sum(y))/(n*sum(x.^2) - sum(x)^2);
+
+
+    xhat = linspace(0, n,n);
+    yhat = a0 + a1*xhat;
+    
+    sr = sum((yhat-y)^2);
+    st = sum((y- sum(y)/n)^2);
+    r2 = (st +sr) / st;
 end
