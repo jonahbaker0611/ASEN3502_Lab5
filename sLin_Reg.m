@@ -10,9 +10,9 @@ function theta = sLin_Reg(x, y)
 
 
     xhat = linspace(0, n,n);
-    yhat = a0 + a1*xhat;
-    
-    sr = sum((yhat-y)^2);
-    st = sum((y- sum(y)/n)^2);
-    r2 = (st +sr) / st;
+    yhat = theta(1) + theta(2)*xhat;
+
+    sr = sum((yhat-y).^2);
+    st = sum((y- mean(y)).^2);
+    r2 = (st - sr) / st;
 end
